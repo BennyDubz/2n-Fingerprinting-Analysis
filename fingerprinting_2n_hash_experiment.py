@@ -162,7 +162,7 @@ def chart_fail_rate(n):
     indices = []
     fail_rates = []
     sum = 0
-    for trial in range(1, 2**(n-1)):
+    for trial in range(1, 2**(n)-1):
         indices.append(trial)
         fail_rates.append(input_ab_experiment_deterministic((0, trial), n, False) * 100)
         sum += fail_rates[trial - 1]
@@ -177,7 +177,7 @@ def chart_fail_rate(n):
     print(f'Average fail rate = {(sum / (2**n -1)):.3f}%')
 
 
-#chart_fail_rate(7)
+chart_fail_rate(6)
 
 
 #find_worst_pair(6, True)
