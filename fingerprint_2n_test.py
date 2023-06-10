@@ -40,7 +40,7 @@ def get_primes_from_file(file_loc, max_count):
     return primes_list
 
 
-primes = get_primes_from_file("../files/primes1.txt", 100000)
+primes = get_primes_from_file("./files/primes1.txt", 100000)
 
 
 def test_highly_composites_from_file(file_input, file_output, max_line=None, output_all=False, print_info=False, random_test=False, start_line=None, plot_failure=False):
@@ -185,13 +185,13 @@ def test_highly_composites_from_file(file_input, file_output, max_line=None, out
     return worst_hcn[1], log2_worst, worst_hcn[2]
 
 # Test the first 10,000 HCNs
-# test_highly_composites_from_file("../files/HCN.txt", "../files/null.txt", max_line=10000, plot_failure=True)
-# test_highly_composites_from_file("../files/HCN.txt", "../files/null.txt", start_line=start_line, plot_failure=True)
+# test_highly_composites_from_file("./files/HCN.txt", "./files/null.txt", max_line=10000, plot_failure=True)
+# test_highly_composites_from_file("./files/HCN.txt", "./files/null.txt", start_line=start_line, plot_failure=True)
 
 
 # Use the information to optimize the HCN
 # I changed the start line and max line to closely straddle the worst HCN in the last 500 for my own sanity
-triple = test_highly_composites_from_file("../files/HCN.txt", "../outputs/null.txt", start_line=779374, max_line=779474)
+triple = test_highly_composites_from_file("./files/HCN.txt", "./outputs/null.txt", start_line=779374, max_line=779474)
 
 
 # Recalculates a number given its list of primes and their exponents
@@ -266,7 +266,7 @@ def optimize_hcn_for_2n_attempt(hcn, log2, primes_and_exponents):
     remove_count = 0
     # Get rid of all excess exponents
     for i in range(len(candidate_pe)):
-        while candidate_pe[i][0] ** candidate_pe[i][1] > log2:
+        while candidate_pe[i][0] ** candidate_pe[i][1] > 2*log2:
             candidate_pe[i] = (candidate_pe[i][0], candidate_pe[i][1] - 1)
             remove_count += 1
     print(f'Removed {remove_count} prime-exponents')

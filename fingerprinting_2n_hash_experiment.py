@@ -36,7 +36,7 @@ def random_ab_experiment(n, attempts, print_info=False):
             success += 1
     if print_info:
         print(failed_rs)
-        print("Expected Guarenteed Fails: " + str(attempts/(2*n)))
+        print("Expected Guaranteed Fails: " + str(attempts/(2*n)))
         print("Success: " + str(success) + " Fail: " + str(fail))
     return fail / attempts
 
@@ -177,7 +177,7 @@ def chart_fail_rate(n):
     print(f'Average fail rate = {(sum / (2**n -1)):.3f}%')
 
 
-chart_fail_rate(6)
+#chart_fail_rate(6)
 
 
 #find_worst_pair(6, True)
